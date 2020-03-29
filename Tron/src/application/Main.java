@@ -2,16 +2,18 @@ package application;
 	
 import java.util.ArrayList;
 //import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+import java.util.ListIterator;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 //import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 //import javafx.fxml.FXMLLoader;
@@ -25,20 +27,34 @@ public class Main extends Application
 	long time = System.nanoTime(); // slow down the animation
 	boolean moved = false;
 	Grid g;
+
+
+	List<Integer> arr = new ArrayList<Integer>();
+	List<Integer> arr2 = new ArrayList<Integer>();
 	
 	@Override
 	public void start(Stage ps)
 	{
 			VBox root = new VBox(10); // import javafx.scene.layout.VBox;
-			root.setPadding(new Insets(10)); // import javafx.geometry.Insets
+			root.setPadding(new Insets(5)); // import javafx.geometry.Insets
 			
 			g = new Grid(width,height);
 			g.addPlayer(new Player(initialLength,g), new Player2(initialLength,g));
 						
+			// Start button
+			root.getChildren().add(g);
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setHeaderText("Press OK to start game!\nPlayer 1 is red.\nPlayer 2 is blue.");
+			Platform.runLater(alert::showAndWait);
+			alert.setOnHidden(e ->{
+			//
 			AnimationTimer timer = new AnimationTimer() 
 			{
 				public void handle(long now)
 				{
+					stop();
+					
+					start();
 					if(now - time > 1000000000 / 10)
 					{
 						g.update();
@@ -58,7 +74,6 @@ public class Main extends Application
 								g.addPlayer(new Player(initialLength,g), new Player2(initialLength,g));
 								root.getChildren().add(g);
 								start();
-
 							});
 						}
 						
@@ -81,100 +96,69 @@ public class Main extends Application
 				}
 			};
 			timer.start();
+			});// end of start button
 			
-			root.getChildren().add(g);
+			//root.getChildren().add(g);
 			
 			Scene scene = new Scene(root);
-			//	ArrayList<Block> blocks1 = new ArrayList<Block>();
-
-			final ArrayList<KeyCode> acceptedCodes = new ArrayList<KeyCode>();
-			acceptedCodes.add(KeyCode.W);
-			acceptedCodes.add(KeyCode.A);
-			acceptedCodes.add(KeyCode.S);
-			acceptedCodes.add(KeyCode.D);
-			acceptedCodes.add(KeyCode.UP);
-			acceptedCodes.add(KeyCode.RIGHT);
-			acceptedCodes.add(KeyCode.LEFT);
-			acceptedCodes.add(KeyCode.DOWN);
 			
-			final Set<KeyCode> codes = new HashSet<>();
-			scene.setOnKeyReleased(e -> codes.clear());
-			scene.setOnKeyPressed(e -> {
-				if(acceptedCodes.contains(e.getCode()))
-				{
-					codes.add(e.getCode());
-					if(codes.contains(KeyCode.UP) && g.p1.getDirection() != Block.DOWN)
-					{
-						setDirection(g.p1, Block.UP);
-					}
-					else if(codes.contains(KeyCode.RIGHT) && g.p1.getDirection() != Block.LEFT)
-					{
-						setDirection(g.p1, Block.RIGHT);
-					}
-					else if(codes.contains(KeyCode.DOWN) && g.p1.getDirection() != Block.UP)
-					{
-						setDirection(g.p1, Block.DOWN);
-					}
-					else if(codes.contains(KeyCode.LEFT) && g.p1.getDirection() != Block.RIGHT)
-					{
-						setDirection(g.p1, Block.LEFT);
-					}
-					
-					if(codes.contains(KeyCode.W) && g.p2.getDirection() != Block.DOWN)
-					{
-						setDirection(g.p2, Block.UP);
-					}
-					else if(codes.contains(KeyCode.D) && g.p2.getDirection() != Block.LEFT)
-					{
-						setDirection(g.p2, Block.RIGHT);
-					}
-					else if(codes.contains(KeyCode.S) && g.p2.getDirection() != Block.UP)
-					{
-						setDirection(g.p2, Block.DOWN);
-					}
-					else if(codes.contains(KeyCode.A) && g.p2.getDirection() != Block.RIGHT)
-					{
-						setDirection(g.p2, Block.LEFT);
-					}
-				}
-			});
-//			
-//			scene.setOnKeyPressed(key1 -> {
-//				if(key1.getCode().equals(KeyCode.UP) && g.p1.getDirection() != Block.DOWN)
-//				{
-//					setDirection(g.p1, Block.UP);
-//				}
-//				else if(key1.getCode().equals(KeyCode.RIGHT) && g.p1.getDirection() != Block.LEFT)
-//				{
-//					setDirection(g.p1, Block.RIGHT);
-//				}
-//				else if(key1.getCode().equals(KeyCode.DOWN) && g.p1.getDirection() != Block.UP)
-//				{
-//					setDirection(g.p1, Block.DOWN);
-//				}
-//				else if(key1.getCode().equals(KeyCode.LEFT) && g.p1.getDirection() != Block.RIGHT)
-//				{
-//					setDirection(g.p1, Block.LEFT);
-//				}
-//			});
-//			scene.setOnKeyPressed(key2 -> {
-//				if(key2.getCode().equals(KeyCode.W) && g.p2.getDirection() != Block.DOWN)
-//				{
-//					setDirection(g.p2, Block.UP);
-//				}
-//				else if(key2.getCode().equals(KeyCode.D) && g.p2.getDirection() != Block.LEFT)
-//				{
-//					setDirection(g.p2, Block.RIGHT);
-//				}
-//				else if(key2.getCode().equals(KeyCode.S) && g.p2.getDirection() != Block.UP)
-//				{
-//					setDirection(g.p2, Block.DOWN);
-//				}
-//				else if(key2.getCode().equals(KeyCode.A) && g.p2.getDirection() != Block.RIGHT)
-//				{
-//					setDirection(g.p2, Block.LEFT);
-//				}
-//			});
+		    scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+                public void handle(KeyEvent event) {
+                    switch (event.getCode()) {
+                    case LEFT:
+                    	if(event.getCode().equals(KeyCode.LEFT) && g.p2.getDirection() != Block.RIGHT)
+                    	{
+                    		setDirection(g.p2, Block.LEFT);
+                        	break;
+                    	}
+                    case RIGHT:
+                    	if(event.getCode().equals(KeyCode.RIGHT) && g.p2.getDirection() != Block.LEFT)
+                    	{
+	                        setDirection(g.p2, Block.RIGHT);
+	                        break;
+                    	}
+                    case UP:
+                    	if(event.getCode().equals(KeyCode.UP) && g.p2.getDirection() != Block.DOWN)
+                    	{
+	                        setDirection(g.p2, Block.UP);
+	                        break;
+                    	}
+                    case DOWN:
+                    	if(event.getCode().equals(KeyCode.DOWN) && g.p2.getDirection() != Block.UP)
+                    	{
+	                        setDirection(g.p2, Block.DOWN);
+	                        break;
+                    	}
+                    
+                    case A:
+                    	if(event.getCode().equals(KeyCode.A) && g.p1.getDirection() != Block.RIGHT)
+                    	{
+	                        setDirection(g.p1, Block.LEFT);
+	                        break;
+                    	}
+                    case D:
+                    	if(event.getCode().equals(KeyCode.D) && g.p1.getDirection() != Block.LEFT)
+                    	{
+	                        setDirection(g.p1, Block.RIGHT);
+	                        break;
+                    	}
+                    case W:
+                    	if(event.getCode().equals(KeyCode.W) && g.p1.getDirection() != Block.DOWN)
+                    	{
+	                        setDirection(g.p1, Block.UP);
+	                        break;
+                    	}
+                    case S:
+                    	if(event.getCode().equals(KeyCode.S) && g.p1.getDirection() != Block.UP)
+                    	{
+	                        setDirection(g.p1, Block.DOWN);
+	                        break;
+                    	}
+                    default:
+                        break;
+                    }
+                }
+            });
 			
 			ps.setResizable(false);
 			ps.setScene(scene);
@@ -184,25 +168,24 @@ public class Main extends Application
 	}
 	
 	public void setDirection(Player p1, int num)
-	{
-		if(!moved)
-		{
-			p1.setDirection(num);
-			moved = true;
-		}
-	}
-	
-	public void setDirection(Player2 p2, int num)
-	{
-		if(!moved)
-		{
-			p2.setDirection(num);
-			moved = true;
-		}
-	}
-	
-	public static void main(String[] args)
-	{
-		launch(args);
-	}
+    {
+        arr.add(num);
+        ListIterator<Integer> itr = arr.listIterator(); 
+        while(itr.hasNext())
+        {
+            p1.setDirection(itr.next());
+            moved = true;
+        }
+    }
+    
+    public void setDirection(Player2 p2, int num)
+    {
+        arr2.add(num);
+        ListIterator<Integer> itr2 = arr2.listIterator(); 
+        while(itr2.hasNext())
+        {
+            p2.setDirection(itr2.next());
+            moved = true;
+        }
+    }
 }

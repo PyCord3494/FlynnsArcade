@@ -14,7 +14,7 @@ public class Player2
 	public Player2(int initialLength, Grid g)
 	{
 		int initialPosX = g.getH() - 15;
-		int initialPosY = g.getH()/2 +2;
+		int initialPosY = g.getH()/2;
 		
 		head = new Block(initialPosX, initialPosY, null, g);
 		

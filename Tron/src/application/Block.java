@@ -10,7 +10,7 @@ public class Block extends Rectangle
 	
 	Block previous;
 	
-	int direction = LEFT;
+	int direction = UP;
 	
 	int maxX, maxY;
 	

@@ -22,6 +22,7 @@ public class Grid extends Pane
 	{
 		this.p1 = p1;
 		this.p2 = p2;
+		
 		for(Block b:p1.blocks1)
 		{
 			addBlock(b);
@@ -32,14 +33,6 @@ public class Grid extends Pane
 			addBlock(b);
 		}
 	}
-	
-//	public void update()
-//	{
-//		for(Block b:blocks)
-//		{
-//			b.update();
-//		}
-//	}
 	
 	public void update()
 	{
@@ -60,6 +53,14 @@ public class Grid extends Pane
 				{
 					return true;
 				}
+				if(b.posX == getW() - 1 || b.posY == getH() - 1)
+				{
+					return true;
+				}
+				if(b.posX < 0 || b.posY < 0)
+				{
+					return true;
+				}
 			}
 		}
 		return false;
@@ -72,6 +73,14 @@ public class Grid extends Pane
 			if(b != p2.head)
 			{
 				if(b.posX == p2.head.posX && b.posY == p2.head.posY)
+				{
+					return true;
+				}
+				if(b.posX == getW() - 1 || b.posY == getH() - 1)
+				{
+					return true;
+				}
+				if(b.posX < 0 || b.posY < 0)
 				{
 					return true;
 				}
