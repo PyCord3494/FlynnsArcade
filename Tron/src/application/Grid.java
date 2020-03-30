@@ -53,7 +53,7 @@ public class Grid extends Pane
 				{
 					return true;
 				}
-				if(b.posX == getW() - 1 || b.posY == getH() - 1)
+				if(p1.head.posX == getW() - 1 || p1.head.posY == getH() - 1)
 				{
 					return true;
 				}
@@ -76,7 +76,7 @@ public class Grid extends Pane
 				{
 					return true;
 				}
-				if(b.posX == getW() - 1 || b.posY == getH() - 1)
+				if(p2.head.posX == getW() - 1 || p2.head.posY == getH() - 1)
 				{
 					return true;
 				}
