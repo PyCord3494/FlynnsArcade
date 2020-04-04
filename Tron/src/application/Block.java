@@ -16,12 +16,12 @@ public class Block extends Rectangle
 	
 	public Block(int x, int y, Block p, Grid g)
 	{
-		super(Main.block_size, Main.block_size);
+		super(MainMenuController.block_size, MainMenuController.block_size);
 		posX = x;
 		posY = y;
 	
-		setTranslateX(posX * Main.block_size);
-		setTranslateY(posY * Main.block_size);
+		setTranslateX(posX * MainMenuController.block_size);
+		setTranslateY(posY * MainMenuController.block_size);
 		previous = p;
 		
 		maxX = g.getW();
@@ -98,7 +98,7 @@ public class Block extends Rectangle
 	public void updatePos()
 	{
 		//System.out.println(posX + " / " + posY);
-		setTranslateX(posX * Main.block_size);
-		setTranslateY(posY * Main.block_size);
+		setTranslateX(posX * MainMenuController.block_size);
+		setTranslateY(posY * MainMenuController.block_size);
 	}
 }

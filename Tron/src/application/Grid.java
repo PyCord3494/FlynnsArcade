@@ -1,6 +1,7 @@
 package application;
 
 import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -17,7 +18,7 @@ public class Grid extends Pane
 	ArrayList<Block> blocks2 = new ArrayList<Block>();
 	Player p1;
 	Player2 p2;
-	
+	MainMenuController player;
 	public void addPlayer(Player p1, Player2 p2)
 	{
 		this.p1 = p1;
@@ -120,11 +121,16 @@ public class Grid extends Pane
 
 	public Grid(int width, int height)
 	{
+		
+		player = new MainMenuController();
 		w = width;
 		h = height;
+		//String p1Score = Integer.toString(player.player1Score);
 		
-		setMinSize(w * Main.block_size, h * Main.block_size);
-		setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
-		setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, new BorderWidths(5))));
+		setMinSize(w * MainMenuController.block_size, h * MainMenuController.block_size);
+		setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
+		setBorder(new Border(new BorderStroke(Color.CYAN, BorderStrokeStyle.SOLID, null, new BorderWidths(10))));
+		
+	
 	}
 }

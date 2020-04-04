@@ -28,10 +28,10 @@ public class MenuController extends Rectangle
 	
 	public MenuController(int x, int y)
 	{
-		super(Main.block_size,Main.block_size);
+		super(MainMenuController.block_size,MainMenuController.block_size);
 		posX=x;
 		posY=y;
-		setTranslateX(posX * Main.block_size);
-		setTranslateY(posY * Main.block_size);
+		setTranslateX(posX * MainMenuController.block_size);
+		setTranslateY(posY * MainMenuController.block_size);
 	}
 }
