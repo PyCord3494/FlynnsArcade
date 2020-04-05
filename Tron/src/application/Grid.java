@@ -54,11 +54,11 @@ public class Grid extends Pane
 				{
 					return true;
 				}
-				if(p1.head.posX == getW() - 1 || p1.head.posY == getH() - 1)
+				if(p1.head.posX == getW() - 2 || p1.head.posY == getH() - 2)	//south & east walls	
 				{
 					return true;
 				}
-				if(b.posX < 0 || b.posY < 0)
+				if(b.posX < 2 || b.posY < 2)
 				{
 					return true;
 				}
@@ -77,11 +77,11 @@ public class Grid extends Pane
 				{
 					return true;
 				}
-				if(p2.head.posX == getW() - 1 || p2.head.posY == getH() - 1)
+				if(p2.head.posX == getW() - 2 || p2.head.posY == getH() - 2)	//south walls 
 				{
 					return true;
 				}
-				if(b.posX < 0 || b.posY < 0)
+				if(b.posX < 2 || b.posY < 2)
 				{
 					return true;
 				}
