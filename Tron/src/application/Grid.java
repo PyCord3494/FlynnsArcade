@@ -167,8 +167,8 @@ public class Grid extends Pane
 	{
 		
 		player = new MainMenuController();
-		w = 25;
-		h = 25;
+		w = width;
+		h = height;
 		//String p1Score = Integer.toString(player.player1Score);
 		
 		setMinSize(w * MainMenuController.block_size, h * MainMenuController.block_size);
