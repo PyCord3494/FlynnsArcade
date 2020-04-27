@@ -1,6 +1,7 @@
 package application;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -9,12 +10,13 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
-
+import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
@@ -33,6 +35,10 @@ public class MainMenuController extends Application {
 	List<Integer> arr = new ArrayList<Integer>();
 	List<Integer> arr2 = new ArrayList<Integer>();
 	
+	private Main main;
+	@FXML Button playAgain;
+	@FXML Button exit2Menu;
+	
 	public void start(Stage ps)
 	{
 			VBox root = new VBox(10); // import javafx.scene.layout.VBox;
@@ -43,10 +49,10 @@ public class MainMenuController extends Application {
 						
 			// Start button
 			root.getChildren().add(g);
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setHeaderText("Press OK to start game!\nPlayer 1 is red.\nPlayer 2 is blue.");
-			Platform.runLater(alert::showAndWait);
-			alert.setOnHidden(e ->{
+			//Alert alert = new Alert(AlertType.INFORMATION);
+			//alert.setHeaderText("Press OK to start game!\nPlayer 1 is red.\nPlayer 2 is blue.");
+			//Platform.runLater(alert::showAndWait);
+			//alert.setOnHidden(e ->{
 			
 			//
 			AnimationTimer timer = new AnimationTimer() 
@@ -82,6 +88,14 @@ public class MainMenuController extends Application {
 						else if(g.gameOverP1())
 						{
 							stop();
+							//ADD END SCENE HERE
+							try {
+								main.showGameOverView();
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+							//add string: Player 2 wins!
 							Alert alert = new Alert(AlertType.INFORMATION);
 							alert.setHeaderText("Player 2 Wins!");
 							Platform.runLater(alert::showAndWait);
@@ -117,7 +131,7 @@ public class MainMenuController extends Application {
 				}
 			};
 			timer.start();
-			});// end of start button
+		//	});// end of start button
 			
 			//root.getChildren().add(g);
 			
@@ -208,5 +222,14 @@ public class MainMenuController extends Application {
             p2.setDirection(itr2.next());
             moved = true;
         }
+    }
+    
+    public void handleButtons(){
+    	if(playAgain==true){
+    		//PLay Again;
+    	}
+    	else{ //if exit2Menu
+    		//Go to menu
+    	}
     }
 }

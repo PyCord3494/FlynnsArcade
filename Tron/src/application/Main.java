@@ -1,36 +1,64 @@
 package application;
-	
 
-
-
-
+import java.io.IOException;
 
 import javafx.application.Application;
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Main extends Application
 {
-	public static void main(String[] args) {
-       Application.launch(MainMenuController.class, args);
-    }
-
+	private Stage primaryStage;
+	private BorderPane startScene;
+	private AnchorPane optionsScene;
+	private BorderPane gameOverScene;
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
-		try {
-		    AnchorPane pane;
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("/Main.fxml"));		//connecting the view to the fxml loader
-			pane=loader.load();
-			Scene scene = new Scene(pane);
-			primaryStage.setTitle("Space Federation");
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
+		try{
+			this.primaryStage = primaryStage;
+			showStartView();
+		  
+		   // showGameOverView();   
+		}
+		catch(Exception e){
+			System.out.println("Cause of Exception: " + e.getCause());
 		}
 	}
+	
+	public void showStartView() throws IOException{
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("StartView.fxml"));
+		startScene = loader.load();
+		primaryStage.setScene(new Scene(startScene));
+		primaryStage.show();
+	}
+	
+	public void showMenuView(Event event) throws IOException{	
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("MenuView.fxml"));
+		optionsScene = loader.load();
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		window.setScene(new Scene(optionsScene));
+		window.show();
+	}
+	
+	public void showGameOverView() throws IOException{
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("GameOverView.fxml"));
+		gameOverScene = loader.load();
+		primaryStage.setScene(new Scene(gameOverScene));
+		primaryStage.show();
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+    }
+
+
 }
