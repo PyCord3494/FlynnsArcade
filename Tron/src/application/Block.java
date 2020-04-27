@@ -1,7 +1,11 @@
 package application;
 
 import javafx.scene.shape.Rectangle;
-
+/***
+ * 
+ * @author gtp818 and yn451
+ *
+ */
 public class Block extends Rectangle
 {
 	
@@ -13,7 +17,13 @@ public class Block extends Rectangle
 	int direction = UP;
 	
 	int maxX, maxY;
-	
+	/**
+	 * 
+	 * @param x position x of the block being used
+	 * @param y	position y of block being used
+	 * @param p	Block is the object of player 1 or player2
+	 * @param g	grid implemented in the game.
+	 */
 	public Block(int x, int y, Block p, Grid g)
 	{
 		super(MainMenuController.block_size, MainMenuController.block_size);
@@ -27,7 +37,9 @@ public class Block extends Rectangle
 		maxX = g.getW();
 		maxY = g.getH();
 	}
-	
+	/**
+	 * This function moves the player in whatever direction they pressed. Updates their current position at the end
+	 */
 	public void movement()
 	{
 		oldPosX = posX;
@@ -53,7 +65,9 @@ public class Block extends Rectangle
 		}
 		updatePos();
 	}
-	
+	/**
+	 * moves the user up if key is pressed and checks to see if its touching an edge
+	 */
 	public void moveUp()
 	{
 		posY--;
@@ -63,7 +77,9 @@ public class Block extends Rectangle
 			//return;
 		}
 	}
-	
+	/**
+	 * moves the user right and checks to see if theyre touching an edge
+	 */
 	public void moveRight()
 	{
 		posX++;
@@ -74,7 +90,9 @@ public class Block extends Rectangle
 			//return;
 		}
 	}
-	
+	/**
+	 * moves the user down and checks to see if theyre touching an edge
+	 */
 	public void moveDown()
 	{
 		posY++;
@@ -84,7 +102,9 @@ public class Block extends Rectangle
 			//return;
 		}
 	}
-	
+	/**
+	 * moves the user right and checks the edge
+	 */
 	public void moveLeft()
 	{
 		posX--;
@@ -94,7 +114,9 @@ public class Block extends Rectangle
 			//return;
 		}
 	}
-	
+	/*
+	 * sends the new position of the block to the controller once again.
+	 */
 	public void updatePos()
 	{
 		//System.out.println(posX + " / " + posY);

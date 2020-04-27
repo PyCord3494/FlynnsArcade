@@ -2,7 +2,11 @@ package application;
 
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
-
+/**
+ * 
+ * @author kxm210
+ *
+ */
 public class Player2
 {
 	ArrayList<Block> blocks1 = new ArrayList<Block>();
@@ -10,7 +14,12 @@ public class Player2
 	
 	Block head;
 	Block tail;
-	
+	  /**
+	  * 
+	  * @param initialLength passed in is the initial Lenght of the player
+	  * @param g is a grid object used in the length of player 2
+	  * This function elongates the player every second of the game making them longer and longer
+	  */
 	public Player2(int initialLength, Grid g)
 	{
 		int initialPosX = g.getH() - 15;
@@ -42,12 +51,19 @@ public class Player2
 //			previous = b;
 //		}
 	}
-	
+	/***
+	 * 
+	 * @return the location of the head
+	 */
 	public int getDirection()
 	{
 		return head.direction;
 	}
 	
+	/**
+	 * 
+	 * @param sets the direction from the block being passed in, the block is the player
+	 */
 	public void setDirection(int d)
 	{
 		head.direction = d;

@@ -15,10 +15,19 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import application.Main;
-
+/***
+ * 
+ * @author uys943
+ *
+ */
 public class FirstViewController implements EventHandler{
 	Main main;
 	@Override
+	
+	/***
+	 * @param event
+	 * This handles the user clicking the button to load the next view which is the view with the user names.
+	 */
 	public void handle(Event event) {
 		//Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		main = new Main();
