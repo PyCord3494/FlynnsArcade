@@ -21,6 +21,7 @@ public class SecondViewController implements EventHandler{
 	private Main main;
 	@FXML private TextField player1;
 	@FXML private TextField player2;
+
 	@Override
 	/**
 	* This function handles the view where the players enter the names before the game starts
@@ -30,12 +31,14 @@ public class SecondViewController implements EventHandler{
 		if(!player1.getText().isEmpty() && !player2.getText().isEmpty())
 		{
 			String p1 = player1.getText();
-			String p2 = player2.getText();
+			String p2= player2.getText();
 			MainMenuController game = new MainMenuController();
 			game.setPlayer(p1,p2);
 			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 			game.start(window);
 		}
 	}
+	
+	
 }
 

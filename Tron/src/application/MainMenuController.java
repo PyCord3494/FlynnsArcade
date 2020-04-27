@@ -43,13 +43,10 @@ public class MainMenuController extends Application {
 	List<Integer> arr2 = new ArrayList<Integer>();
 	
 	private Main main = new Main();
-	String player1;
-	String player2;
+	public String player1;
+	public String player2;
 
-	public void setPlayer(String p1, String p2){
-		this.player1 = p1;
-		this.player2 = p2;
-	}
+	
 	/**
 	 * Function to start the game
 	 * Passed in the Stage ps to build the application
@@ -61,12 +58,13 @@ public class MainMenuController extends Application {
 			
 			g = new Grid(width,height);
 			g.addPlayer(new Player(initialLength,g), new Player2(initialLength,g));
-						
+			
 			// Start button
 			root.getChildren().add(g);
 			
 			AnimationTimer timer = new AnimationTimer() {
 				public void handle(long now){
+					String status;
 					stop();
 					
 					start();
@@ -78,30 +76,36 @@ public class MainMenuController extends Application {
 						if(g.gameOverP1() && g.gameOverP2()){
 							stop();
 							try {
-								main.showGameOverView(ps, "It's a tie!");
+								player1Score--;
+								player2Score--;
+								status =  "It's a tie! \nScores: \n" +player1+ " "+player1Score+ "\n"+player2 +" "+player2Score;
+								main.showGameOverView(ps,status, player1,player2);
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
-							player1Score--;
-							player2Score--;
+
 						}
 						else if(g.gameOverP1()){
 							stop();
 							try {
-								main.showGameOverView(ps, "Player "+player2+" Wins");
+								player2Score++;
+								status = "Player "+player2+" Wins!\n Score: " +player2Score;
+								main.showGameOverView(ps,status,player1,player2);
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
-							player2Score++;
+
 						}
 						else if(g.gameOverP2()){
 							stop();
 							try {
-								main.showGameOverView(ps, "Player "+player1+ " Wins");
+								player1Score++;
+								status =  "Player "+player1+ " Wins!\n Score: "+player1Score;
+								main.showGameOverView(ps,status,player1,player2);
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
-							player1Score++;
+
 						}
 					}
 				}
@@ -196,4 +200,10 @@ public class MainMenuController extends Application {
             moved = true;
         }
     }
+    
+    public void setPlayer(String p1, String p2){
+		this.player1 = p1;
+		this.player2 = p2;
+	}
+
 }

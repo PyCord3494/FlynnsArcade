@@ -17,12 +17,18 @@ public class LastViewController extends Application {
 	private Main main;
 	private MainMenuController game;
 	
+	
 	@FXML Button playAgain;
 	@FXML Button exit2Menu;
 	@FXML Label label;
 	
-	public void setLabel(String score){
+	public String p1;
+	public String p2;
+	
+	public void setLabel(String score, String player1, String player2){
 		label.setText(score);
+		this.p1 = player1;
+		this.p2 = player2;
 	}
 
 	/**
@@ -33,6 +39,7 @@ public class LastViewController extends Application {
 	public void handlePlayAgain(Event event) throws Exception{
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		game = new MainMenuController();
+		game.setPlayer(this.p1, this.p2);
 		game.start(window);
 	}
 	

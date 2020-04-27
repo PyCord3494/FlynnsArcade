@@ -14,6 +14,7 @@ public class Player
 
 	Block head;
 	Block tail;
+	public String name;
 	/**
 	  * 
 	  * @param initialLength passed in is the initial Length of the player
@@ -65,5 +66,12 @@ public class Player
 	public void setDirection(int d)
 	{
 		head.direction = d;
+	}
+	public void setName(String n){
+		this.name = n;
+	}
+	
+	public String getName(){
+		return name;
 	}
 }
