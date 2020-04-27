@@ -64,7 +64,7 @@ public class MainMenuController extends Application {
 						if(g.gameOverP1() && g.gameOverP2()){
 							stop();
 							try {
-								main.showGameOverView(ps);
+								main.showGameOverView(ps, "It's a tie!");
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
@@ -74,7 +74,7 @@ public class MainMenuController extends Application {
 						else if(g.gameOverP1()){
 							stop();
 							try {
-								main.showGameOverView(ps);
+								main.showGameOverView(ps, "Play 2 Wins");
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
@@ -83,7 +83,7 @@ public class MainMenuController extends Application {
 						else if(g.gameOverP2()){
 							stop();
 							try {
-								main.showGameOverView(ps);
+								main.showGameOverView(ps, "Player 1 Wins");
 							} catch (IOException e) {
 								e.printStackTrace();
 							}

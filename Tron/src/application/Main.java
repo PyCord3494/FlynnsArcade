@@ -23,8 +23,6 @@ public class Main extends Application
 		try{
 			this.primaryStage = primaryStage;
 			showStartView();
-		  
-		   // showGameOverView();   
 		}
 		catch(Exception e){
 			System.out.println("Cause of Exception: " + e.getCause());
@@ -48,7 +46,7 @@ public class Main extends Application
 		window.show();
 	}
 	
-	public void showGameOverView(Stage window) throws IOException{
+	public void showGameOverView(Stage window, String score) throws IOException{
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("GameOverView.fxml"));
 		gameOverScene = loader.load();

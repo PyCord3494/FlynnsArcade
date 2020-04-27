@@ -23,8 +23,8 @@
               </rowConstraints>
             </GridPane>
             <Label layoutX="250.0" layoutY="110.0" text="Game Over" />
-            <Button fx:id="playAgain" layoutX="128.0" layoutY="331.0" mnemonicParsing="false" onAction="#handle" text="Race Again! " />
-            <Button fx:id="exit2Menu" layoutX="250.0" layoutY="331.0" mnemonicParsing="false" onAction="#handle" text="Go to Main Menu" />
+            <Button fx:id="playAgain" layoutX="128.0" layoutY="331.0" mnemonicParsing="false" onAction="#handlePlayAgain" text="Race Again! " />
+            <Button fx:id="exit2Menu" layoutX="250.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleGo2Menu" text="Go to Main Menu" />
          </children>
       </Pane>
    </center>

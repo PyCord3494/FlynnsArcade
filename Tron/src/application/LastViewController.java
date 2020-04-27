@@ -14,15 +14,16 @@ public class LastViewController extends Application {
 	@FXML Button playAgain;
 	@FXML Button exit2Menu;
 
-	public void handle(Event event) throws Exception{
+	
+	public void handlePlayAgain(Event event) throws Exception{
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-		if(playAgain != null){
-			game.start(window);
-		}
-		else{ //if exit2Menu
-			System.out.print("Go back to main menu");
-			main = new Main();
-			main.start(window);
-		}
+		game = new MainMenuController();
+		game.start(window);
+	}
+	
+	public void handleGo2Menu(Event event) throws Exception{
+		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+		main = new Main();
+		main.start(window);
 	}
 }
