@@ -29,7 +29,10 @@ public class SecondViewController implements EventHandler{
 	public void handle(Event event) {
 		if(!player1.getText().isEmpty() && !player2.getText().isEmpty())
 		{
+			String p1 = player1.getText();
+			String p2 = player2.getText();
 			MainMenuController game = new MainMenuController();
+			game.setPlayer(p1,p2);
 			Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 			game.start(window);
 		}

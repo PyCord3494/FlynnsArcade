@@ -5,6 +5,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
@@ -18,6 +19,11 @@ public class LastViewController extends Application {
 	
 	@FXML Button playAgain;
 	@FXML Button exit2Menu;
+	@FXML Label label;
+	
+	public void setLabel(String score){
+		label.setText(score);
+	}
 
 	/**
 	 * Handler for "Race Again" option

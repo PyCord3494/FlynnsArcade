@@ -43,8 +43,13 @@ public class MainMenuController extends Application {
 	List<Integer> arr2 = new ArrayList<Integer>();
 	
 	private Main main = new Main();
+	String player1;
+	String player2;
 
-	
+	public void setPlayer(String p1, String p2){
+		this.player1 = p1;
+		this.player2 = p2;
+	}
 	/**
 	 * Function to start the game
 	 * Passed in the Stage ps to build the application
@@ -83,7 +88,7 @@ public class MainMenuController extends Application {
 						else if(g.gameOverP1()){
 							stop();
 							try {
-								main.showGameOverView(ps, "Play 2 Wins");
+								main.showGameOverView(ps, "Player "+player2+" Wins");
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
@@ -92,7 +97,7 @@ public class MainMenuController extends Application {
 						else if(g.gameOverP2()){
 							stop();
 							try {
-								main.showGameOverView(ps, "Player 1 Wins");
+								main.showGameOverView(ps, "Player "+player1+ " Wins");
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
