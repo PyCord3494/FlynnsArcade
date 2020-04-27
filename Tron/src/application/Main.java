@@ -48,12 +48,12 @@ public class Main extends Application
 		window.show();
 	}
 	
-	public void showGameOverView() throws IOException{
+	public void showGameOverView(Stage window) throws IOException{
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("GameOverView.fxml"));
 		gameOverScene = loader.load();
-		primaryStage.setScene(new Scene(gameOverScene));
-		primaryStage.show();
+		window.setScene(new Scene(gameOverScene));
+		window.show();
 	}
 	
 	public static void main(String[] args) {

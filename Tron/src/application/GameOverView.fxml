@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainMenuController">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LastViewController">
    <center>
       <Pane prefHeight="500.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
@@ -23,8 +23,8 @@
               </rowConstraints>
             </GridPane>
             <Label layoutX="250.0" layoutY="110.0" text="Game Over" />
-            <Button layoutX="128.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleButtons" text="Race Again! " />
-            <Button layoutX="250.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleButtons" text="Go to Main Menu" />
+            <Button fx:id="playAgain" layoutX="128.0" layoutY="331.0" mnemonicParsing="false" onAction="#handle" text="Race Again! " />
+            <Button fx:id="exit2Menu" layoutX="250.0" layoutY="331.0" mnemonicParsing="false" onAction="#handle" text="Go to Main Menu" />
          </children>
       </Pane>
    </center>
