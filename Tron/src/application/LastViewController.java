@@ -7,6 +7,11 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+/**
+ * Java class to handle the ending screen of the game
+ * Provides the "Race Again" and "Go to Main Menu" buttons' functionality
+ * @author uys943
+ */
 public class LastViewController extends Application {
 	private Main main;
 	private MainMenuController game;
@@ -14,13 +19,22 @@ public class LastViewController extends Application {
 	@FXML Button playAgain;
 	@FXML Button exit2Menu;
 
-	
+	/**
+	 * Handler for "Race Again" option
+	 * @param event
+	 * @throws Exception
+	 */
 	public void handlePlayAgain(Event event) throws Exception{
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		game = new MainMenuController();
 		game.start(window);
 	}
 	
+	/**
+	 * Handler for "Go to Main Menu" option
+	 * @param event
+	 * @throws Exception
+	 */
 	public void handleGo2Menu(Event event) throws Exception{
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		main = new Main();

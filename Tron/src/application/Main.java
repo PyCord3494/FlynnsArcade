@@ -11,6 +11,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author kxm210
+ *
+ */
 public class Main extends Application
 {
 	private Stage primaryStage;
@@ -18,6 +23,7 @@ public class Main extends Application
 	private AnchorPane optionsScene;
 	private BorderPane gameOverScene;
 	
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		try{
@@ -29,6 +35,10 @@ public class Main extends Application
 		}
 	}
 	
+	/**
+	 * 
+	 * @throws IOException
+	 */
 	public void showStartView() throws IOException{
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("StartView.fxml"));
@@ -37,6 +47,11 @@ public class Main extends Application
 		primaryStage.show();
 	}
 	
+	/**
+	 * 
+	 * @param event
+	 * @throws IOException
+	 */
 	public void showMenuView(Event event) throws IOException{	
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("MenuView.fxml"));
@@ -46,6 +61,12 @@ public class Main extends Application
 		window.show();
 	}
 	
+	/**
+	 * 
+	 * @param window
+	 * @param score
+	 * @throws IOException
+	 */
 	public void showGameOverView(Stage window, String score) throws IOException{
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("GameOverView.fxml"));
@@ -54,6 +75,10 @@ public class Main extends Application
 		window.show();
 	}
 	
+	/**
+	 * Main method to run the program
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		launch(args);
     }

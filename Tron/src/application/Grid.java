@@ -11,6 +11,11 @@ import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.Pane;
 
+/**
+ * Grid is a java class used to represent the actuapl playing field for the Tron game. 
+ * It focuses on adding the players to the game and drawing their movements.
+ * @author gtp818
+ */
 public class Grid extends Pane
 {
 	private int w,h;
@@ -19,6 +24,12 @@ public class Grid extends Pane
 	Player p1;
 	Player2 p2;
 	MainMenuController player;
+	
+	/**
+	 * Adds the two players into the game
+	 * @param p1	Player object representing player1
+	 * @param p2	Player2 object representing player2
+	 */
 	public void addPlayer(Player p1, Player2 p2)
 	{
 		this.p1 = p1;
@@ -35,6 +46,10 @@ public class Grid extends Pane
 		}
 	}
 	
+	/**
+	 * Generates coordinates for player's movements
+	 * and updates grid correspondingly
+	 */
 	public void update()
 	{
 		for(Block b:blocks1)
@@ -44,6 +59,10 @@ public class Grid extends Pane
 		addOne();
 	}
 	
+	/**
+	 * Determines if p1 has lost
+	 * @return Boolean representing if p1 loses
+	 */
 	public boolean gameOverP1()
 	{
 		for(Block b:blocks1)
@@ -67,6 +86,10 @@ public class Grid extends Pane
 		return false;
 	}
 	
+	/**
+	 * Determines if p2 has lost
+	 * @return Boolean representing if p2 loses
+	 */
 	public boolean gameOverP2()
 	{
 		for(Block b:blocks2)
@@ -90,6 +113,9 @@ public class Grid extends Pane
 		return false;
 	}
 	
+	/**
+	 * Colors the new movement block, reassigns tail, and adds said block
+	 */
 	public void addOne()
 	{
 		Block b = new Block(p1.tail.oldPosX, p1.tail.oldPosY, p1.tail, this);
@@ -104,6 +130,10 @@ public class Grid extends Pane
 		addBlock(b2);
 	}
 	
+	/**
+	 * Adds the block to the arraylist of blocks
+	 * @param one	Block to add to the arraylist
+	 */
 	private void addBlock(Block one)
 	{
 		getChildren().add(one);
@@ -111,20 +141,34 @@ public class Grid extends Pane
 		blocks2.add(one);
 	}
 	
+	/**
+	 * Grab grid's width
+	 * @return int w	width of grid
+	 */
 	public int getW() {
 		return w;
 	}
 
+	/**
+	 * Grab grid's height
+	 * @return int h	height of grid
+	 */
 	public int getH() {
 		return h;
 	}
 
+	/**
+	 * Constructor for Grid
+	 * 
+	 * @param width		Grid's width
+	 * @param height	Grid's height
+	 */
 	public Grid(int width, int height)
 	{
 		
 		player = new MainMenuController();
-		w = width;
-		h = height;
+		w = 25;
+		h = 25;
 		//String p1Score = Integer.toString(player.player1Score);
 		
 		setMinSize(w * MainMenuController.block_size, h * MainMenuController.block_size);

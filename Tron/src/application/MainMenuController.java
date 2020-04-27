@@ -24,6 +24,11 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author yng451
+ *
+ */
 public class MainMenuController extends Application {
 		
 	static int block_size = 10;
@@ -40,6 +45,10 @@ public class MainMenuController extends Application {
 	private Main main = new Main();
 
 	
+	/**
+	 * Function to start the game
+	 * Passed in the Stage ps to build the application
+	 */
 	public void start(Stage ps)
 	{
 			VBox root = new VBox(10); // import javafx.scene.layout.VBox;
@@ -155,6 +164,11 @@ public class MainMenuController extends Application {
 			ps.show();
 	}
 	
+	/**
+	 * Sets the direction for player
+	 * @param p1	function for player1
+	 * @param num	integer representing player's direction
+	 */
 	public void setDirection(Player p1, int num){
         arr.add(num);
         ListIterator<Integer> itr = arr.listIterator(); 
@@ -164,6 +178,11 @@ public class MainMenuController extends Application {
         }
     }
     
+	/**
+	 * Sets the direction for player
+	 * @param p2	function for player2
+	 * @param num	integer representing player's direction
+	 */
     public void setDirection(Player2 p2, int num){
         arr2.add(num);
         ListIterator<Integer> itr2 = arr2.listIterator(); 
