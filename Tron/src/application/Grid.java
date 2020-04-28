@@ -77,7 +77,7 @@ public class Grid extends Pane
 				{
 					return true;
 				}
-				if(b.posX < 2 || b.posY < 2)
+				if(p1.head.posX < 1 || p1.head.posY < 1)
 				{
 					return true;
 				}
@@ -104,8 +104,8 @@ public class Grid extends Pane
 				{
 					return true;
 				}
-				if(b.posX < 2 || b.posY < 2)
-				{
+				if(p2.head.posX < 1 || p2.head.posY < 1)
+					{
 					return true;
 				}
 			}
