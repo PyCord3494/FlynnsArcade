@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -9,9 +14,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SecondViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SecondViewController">
    <children>
-      <MenuBar layoutY="2.0" prefHeight="24.0" prefWidth="600.0">
+      <ImageView fitHeight="375.0" fitWidth="606.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/wp2799855-tron-grid-wallpaper.jpg" />
+         </image>
+      </ImageView>
+      <MenuBar prefHeight="24.0" prefWidth="600.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -30,22 +40,22 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Label layoutX="173.0" layoutY="119.0" prefHeight="26.0" prefWidth="255.0" text="Please Enter two player names:">
+      <Label layoutX="130.0" layoutY="120.0" prefHeight="26.0" prefWidth="350.0" text="Please Enter two player names:" textFill="#1aaed7">
          <font>
-            <Font name="System Bold Italic" size="17.0" />
+            <Font name="Arial Black" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="126.0" layoutY="181.0" text="Player 1:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="126.0" layoutY="245.0" text="Player 2:">
+      <Label layoutX="126.0" layoutY="181.0" text="Player 1:" textFill="#1aaed7">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="221.0" layoutY="316.0" mnemonicParsing="false" onAction="#handle" prefHeight="22.0" prefWidth="167.0" text="Start">
+      <Label layoutX="126.0" layoutY="245.0" text="Player 2:" textFill="#1aaed7">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="191.0" layoutY="276.0" mnemonicParsing="false" onAction="#handle" prefHeight="22.0" prefWidth="167.0" text="Start">
          <font>
             <Font size="20.0" />
          </font>
