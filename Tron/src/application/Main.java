@@ -1,7 +1,8 @@
 package application;
 
 import java.io.IOException;
-
+import application.controller.LastViewController;
+import application.model.ScoreTracker;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
@@ -31,7 +32,7 @@ public class Main extends Application
 			showStartView();
 		}
 		catch(Exception e){
-			System.out.println("Cause of Exception: " + e.getCause());
+			e.printStackTrace();
 		}
 	}
 	
@@ -41,7 +42,7 @@ public class Main extends Application
 	 */
 	public void showStartView() throws IOException{
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("StartView.fxml"));
+		loader.setLocation(getClass().getResource("controller/StartView.fxml"));
 		startScene = loader.load();
 		primaryStage.setScene(new Scene(startScene));
 		primaryStage.show();
@@ -54,7 +55,7 @@ public class Main extends Application
 	 */
 	public void showMenuView(Event event) throws IOException{	
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("MenuView.fxml"));
+		loader.setLocation(getClass().getResource("controller/MenuView.fxml"));
 		optionsScene = loader.load();
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		window.setScene(new Scene(optionsScene));
@@ -69,7 +70,7 @@ public class Main extends Application
 	 */
 	public void showGameOverView(Stage window, String message, ScoreTracker st) throws IOException{
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("GameOverView.fxml"));
+		loader.setLocation(getClass().getResource("controller/GameOverView.fxml"));
 		gameOverScene = loader.load();
 		LastViewController lv = loader.getController();
 		lv.setLabel(message,st);
