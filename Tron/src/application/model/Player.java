@@ -13,7 +13,7 @@ import javafx.scene.paint.Color;
 public class Player
 {
 	public ArrayList<Block> blocks1 = new ArrayList<Block>();
-	ArrayList<Block> blocks2 = new ArrayList<Block>();
+	public ArrayList<Block> blocks2 = new ArrayList<Block>();
 
 	public Block head;
 	public Block tail;
