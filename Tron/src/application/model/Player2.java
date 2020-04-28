@@ -12,7 +12,7 @@ import javafx.scene.paint.Color;
  */
 public class Player2
 {
-	ArrayList<Block> blocks1 = new ArrayList<Block>();
+	public ArrayList<Block> blocks1 = new ArrayList<Block>();
 	public ArrayList<Block> blocks2 = new ArrayList<Block>();	
 	
 	public Block head;
@@ -26,7 +26,7 @@ public class Player2
 	  */
 	public Player2(int initialLength, Grid g)
 	{
-		int initialPosX = g.getH() - 15;
+		int initialPosX = g.getW() - 25;
 		int initialPosY = g.getH()/2;
 		
 		head = new Block(initialPosX, initialPosY, null, g);
