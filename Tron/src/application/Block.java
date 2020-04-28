@@ -3,7 +3,7 @@ package application;
 import javafx.scene.shape.Rectangle;
 /***
  * 
- * @author gtp818 and yn451
+ * @author gtp818 and yng451
  *
  */
 public class Block extends Rectangle
