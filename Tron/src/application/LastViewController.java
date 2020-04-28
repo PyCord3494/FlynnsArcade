@@ -51,4 +51,10 @@ public class LastViewController extends Application {
 		main = new Main();
 		main.start(window);
 	}
+
+	@Override
+	public void start(Stage arg0) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
 }

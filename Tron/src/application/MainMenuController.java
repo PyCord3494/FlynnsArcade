@@ -91,7 +91,7 @@ public class MainMenuController extends Application {
 							stop();
 							try {
 								scrT.p2Score++;
-								status = "Player "+player2+" Wins!\n Score: " +scrT.getScorePlayer2();
+								status = "Player "+player2+" Wins! \nScores: \n" +player1+ " "+scrT.getScorePlayer1()+ "\n"+player2+" "+scrT.getScorePlayer2();
 								main.showGameOverView(ps,status,scrT);
 							} catch (IOException e) {
 								e.printStackTrace();
@@ -102,7 +102,7 @@ public class MainMenuController extends Application {
 							stop();
 							try {
 								scrT.p1Score++;
-								status =  "Player "+player1+ " Wins!\n Score: "+scrT.getScorePlayer1();
+								status =  "Player "+player1+ " Wins! \nScores: \n" +player1+ " "+scrT.getScorePlayer1()+ "\n"+player2+" "+scrT.getScorePlayer2();
 								main.showGameOverView(ps,status,scrT);
 							} catch (IOException e) {
 								e.printStackTrace();
