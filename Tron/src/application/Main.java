@@ -67,12 +67,12 @@ public class Main extends Application
 	 * @param score
 	 * @throws IOException
 	 */
-	public void showGameOverView(Stage window, String score, String player1, String player2) throws IOException{
+	public void showGameOverView(Stage window, String message, ScoreTracker st) throws IOException{
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("GameOverView.fxml"));
 		gameOverScene = loader.load();
 		LastViewController lv = loader.getController();
-		lv.setLabel(score, player1, player2);
+		lv.setLabel(message,st);
 		window.setScene(new Scene(gameOverScene));
 		window.show();
 	}

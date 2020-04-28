@@ -1,4 +1,5 @@
 package application;
+import application.ScoreTracker;
 
 import javafx.application.Application;
 import javafx.event.Event;
@@ -21,14 +22,11 @@ public class LastViewController extends Application {
 	@FXML Button playAgain;
 	@FXML Button exit2Menu;
 	@FXML Label label;
+	ScoreTracker currentPlayers;
 	
-	public String p1;
-	public String p2;
-	
-	public void setLabel(String score, String player1, String player2){
+	public void setLabel(String score, ScoreTracker st){
 		label.setText(score);
-		this.p1 = player1;
-		this.p2 = player2;
+		this.currentPlayers = st;
 	}
 
 	/**
@@ -39,7 +37,7 @@ public class LastViewController extends Application {
 	public void handlePlayAgain(Event event) throws Exception{
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		game = new MainMenuController();
-		game.setPlayer(this.p1, this.p2);
+		game.passScoreTracker(this.currentPlayers);
 		game.start(window);
 	}
 	

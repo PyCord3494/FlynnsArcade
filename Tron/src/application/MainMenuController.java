@@ -30,7 +30,8 @@ import javafx.stage.Stage;
  *
  */
 public class MainMenuController extends Application {
-		
+	
+	ScoreTracker scrT;
 	static int block_size = 10;
 	int width = 100,height = 55;
 	int initialLength = 1;
@@ -43,9 +44,6 @@ public class MainMenuController extends Application {
 	List<Integer> arr2 = new ArrayList<Integer>();
 	
 	private Main main = new Main();
-	public String player1;
-	public String player2;
-
 	
 	/**
 	 * Function to start the game
@@ -66,6 +64,8 @@ public class MainMenuController extends Application {
 				public void handle(long now){
 					String status;
 					stop();
+					String player1 = scrT.getNamePlayer1();
+					String player2 = scrT.getNamePlayer2();
 					
 					start();
 					if(now - time > 1000000000 / 10){
@@ -76,10 +76,12 @@ public class MainMenuController extends Application {
 						if(g.gameOverP1() && g.gameOverP2()){
 							stop();
 							try {
-								player1Score--;
-								player2Score--;
-								status =  "It's a tie! \nScores: \n" +player1+ " "+player1Score+ "\n"+player2 +" "+player2Score;
-								main.showGameOverView(ps,status, player1,player2);
+								if(scrT.getScorePlayer1() > 0 && scrT.getScorePlayer2() > 0){
+									scrT.p1Score--;
+									scrT.p2Score--;
+								}
+								status =  "It's a tie! \nScores: \n" +player1+ " "+scrT.getScorePlayer1()+ "\n"+player2+" "+scrT.getScorePlayer2();
+								main.showGameOverView(ps,status,scrT);
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
@@ -88,9 +90,9 @@ public class MainMenuController extends Application {
 						else if(g.gameOverP1()){
 							stop();
 							try {
-								player2Score++;
-								status = "Player "+player2+" Wins!\n Score: " +player2Score;
-								main.showGameOverView(ps,status,player1,player2);
+								scrT.p2Score++;
+								status = "Player "+player2+" Wins!\n Score: " +scrT.getScorePlayer2();
+								main.showGameOverView(ps,status,scrT);
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
@@ -99,9 +101,9 @@ public class MainMenuController extends Application {
 						else if(g.gameOverP2()){
 							stop();
 							try {
-								player1Score++;
-								status =  "Player "+player1+ " Wins!\n Score: "+player1Score;
-								main.showGameOverView(ps,status,player1,player2);
+								scrT.p1Score++;
+								status =  "Player "+player1+ " Wins!\n Score: "+scrT.getScorePlayer1();
+								main.showGameOverView(ps,status,scrT);
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
@@ -201,9 +203,8 @@ public class MainMenuController extends Application {
         }
     }
     
-    public void setPlayer(String p1, String p2){
-		this.player1 = p1;
-		this.player2 = p2;
-	}
+    public void passScoreTracker(ScoreTracker scoreT){
+    	this.scrT = scoreT;
+    }
 
 }
