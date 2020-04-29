@@ -1,8 +1,9 @@
 package application.model;
-/***
+
+/**
+ * This class is for keeping track of each player's name and score.
  * 
  * @author uys943
- *
  */
 public class ScoreTracker {
 
@@ -10,39 +11,46 @@ public class ScoreTracker {
 	private String name2;
 	public int p1Score;
 	public int p2Score;
-	/***
+	
+	/**
+	 * Constructor for keeping track of player scores.
 	 * 
-	 * @param p1 constructor for both players scores
-	 * @param p2
+	 * @param p1 		player object for player 1
+	 * @param p2		player object for player 2
 	 */
 	public ScoreTracker(String p1, String p2){
 		this.name1 = p1;
 		this.name2 = p2;
 	}
+	
 	/**
-	 *  getter that returns player 1 name
-	 * @return	player 1 name
+	 * Getter that returns player 1's name.
+	 * 
+	 * @return name1		player 1's name
 	 */
 	public String getNamePlayer1(){
 		return name1;
 	}
+	
 	/**
-	 *  getter that returns player 2 name
-	 * @return	player 2 name
+	 * Getter that returns player 2's name.
+	 * @return name2		player 2's name
 	 */
 	public String getNamePlayer2(){
 		return name2;
 	}
+	
 	/**
-	 *  getter that returns player 1 score
-	 * @return	player 1 score
+	 * Getter that returns player 1's score.
+	 * @return p1Score		player 1's score
 	 */
 	public int getScorePlayer1(){
 		return p1Score;
 	}
+	
 	/**
-	 *  getter that returns player 2 score
-	 * @return	player 2 score
+	 * Getter that returns player 2's score.
+	 * @return p2Score		player 2's score
 	 */
 	public int getScorePlayer2(){
 		return p2Score;

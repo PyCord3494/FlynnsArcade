@@ -13,9 +13,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
+ * Main function that runs the entire program. Loads the FXML files for all screens and controllers.
  * 
- * @author kxm210
- *
+ * @author kxm210, gtp818, yng451 and uys943
  */
 public class Main extends Application
 {
@@ -26,6 +26,12 @@ public class Main extends Application
 	
 
 	@Override
+	/**
+	 * Function to display the first scene of the game.
+	 * 
+	 * @param primaryStage		the primary stage called for the first scene
+	 * @throws Exception		exception for showStartView() if it can't load the FXML file
+	 */
 	public void start(Stage primaryStage) throws Exception {
 		try{
 			this.primaryStage = primaryStage;
@@ -37,8 +43,9 @@ public class Main extends Application
 	}
 	
 	/**
+	 * Function to load the start view FXML file.
 	 * 
-	 * @throws IOException
+	 * @throws IOException		exception for if the file is not found/loaded properly
 	 */
 	public void showStartView() throws IOException{
 		FXMLLoader loader = new FXMLLoader();
@@ -49,9 +56,10 @@ public class Main extends Application
 	}
 	
 	/**
+	 * Function to load the second scene from FXML file.
 	 * 
-	 * @param event
-	 * @throws IOException
+	 * @param event				Button from first scene used to load second scene
+	 * @throws IOException		exception for if the file is not found/loaded properly
 	 */
 	public void showMenuView(Event event) throws IOException{	
 		FXMLLoader loader = new FXMLLoader();
@@ -63,10 +71,12 @@ public class Main extends Application
 	}
 	
 	/**
+	 * Function to load the final scene from FXML file.
 	 * 
-	 * @param window
-	 * @param score
-	 * @throws IOException
+	 * @param window			Stage object to show the app screen
+	 * @param message			String passed to the game over controller to display on label
+	 * @param st				String passed to the game over controller to keep track of player scores
+	 * @throws IOException		exception for if the FXML file is not found or can't load
 	 */
 	public void showGameOverView(Stage window, String message, ScoreTracker st) throws IOException{
 		FXMLLoader loader = new FXMLLoader();
@@ -79,7 +89,8 @@ public class Main extends Application
 	}
 	
 	/**
-	 * Main method to run the program
+	 * Main method to run the program.
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {

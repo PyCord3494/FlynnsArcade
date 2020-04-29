@@ -10,8 +10,9 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
- * Java class to handle the ending screen of the game
- * Provides the "Race Again" and "Go to Main Menu" buttons' functionality
+ * Java class to handle the ending screen of the game.
+ * Provides the "Race Again" and "Go to Main Menu" buttons' functionality.
+ * 
  * @author uys943
  */
 public class LastViewController extends Application {
@@ -24,17 +25,24 @@ public class LastViewController extends Application {
 	@FXML Label label;
 	ScoreTracker currentPlayers;
 	
+	/**
+	 * Function to display who wins on the game over screen.
+	 * 
+	 * @param score		String to display of which player wins
+	 * @param st		Data of each player's score to display on screen
+	 */
 	public void setLabel(String score, ScoreTracker st){
 		label.setText(score);
 		this.currentPlayers = st;
 	}
 
 	/**
-	 * Handler for "Race Again" option
-	 * @param event
-	 * @throws Exception
+	 * Handler for "Race Again" option.
+	 * 
+	 * @param event			action recorded for if the button is pressed on the scene
 	 */
-	public void handlePlayAgain(Event event) throws Exception{
+	public void handlePlayAgain(Event event)
+	{
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 		game = new MainMenuController();
 		game.passScoreTracker(this.currentPlayers);
@@ -42,9 +50,10 @@ public class LastViewController extends Application {
 	}
 	
 	/**
-	 * Handler for "Go to Main Menu" option
-	 * @param event
-	 * @throws Exception
+	 * Handler for "Go to Main Menu" option.
+	 * 
+	 * @param event				variable to keep track of button press
+	 * @throws Exception		exception for if the primary view is not loaded
 	 */
 	public void handleGo2Menu(Event event) throws Exception{
 		Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -53,8 +62,10 @@ public class LastViewController extends Application {
 	}
 
 	@Override
-	public void start(Stage arg0) throws Exception {
-		// TODO Auto-generated method stub
-		
+	/**
+	 * Function required by class.
+	 */
+	public void start(Stage arg0) throws Exception
+	{		
 	}
 }

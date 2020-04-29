@@ -1,9 +1,7 @@
 package application.controller;
 
 import javafx.scene.paint.Color;
-
 import java.util.ArrayList;
-
 import application.model.Player;
 import application.model.Player2;
 import javafx.scene.layout.Background;
@@ -15,8 +13,9 @@ import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.Pane;
 
 /**
- * Grid is a java class used to represent the actual playing field for the Tron game. 
+ * A class used to represent the actual playing field for the Tron game. 
  * It focuses on adding the players to the game and drawing their movements.
+ * 
  * @author gtp818
  */
 public class Grid extends Pane
@@ -29,7 +28,8 @@ public class Grid extends Pane
 	MainMenuController player;
 	
 	/**
-	 * Adds the two players into the game
+	 * Adds the two players into the game.
+	 * 
 	 * @param p1	Player object representing player1
 	 * @param p2	Player2 object representing player2
 	 */
@@ -51,7 +51,7 @@ public class Grid extends Pane
 	
 	/**
 	 * Generates coordinates for player's movements
-	 * and updates grid correspondingly
+	 * and updates grid correspondingly.
 	 */
 	public void update()
 	{
@@ -63,8 +63,9 @@ public class Grid extends Pane
 	}
 	
 	/**
-	 * Determines if p1 has lost
-	 * @return Boolean representing if p1 loses
+	 * Determines if p1 has lost with given conditions.
+	 * 
+	 * @return Boolean 		represents if p1 loses
 	 */
 	public boolean gameOverP1()
 	{
@@ -90,8 +91,9 @@ public class Grid extends Pane
 	}
 	
 	/**
-	 * Determines if p2 has lost
-	 * @return Boolean representing if p2 loses
+	 * Determines if p2 has lost.
+	 * 
+	 * @return Boolean		 represents if p2 loses
 	 */
 	public boolean gameOverP2()
 	{
@@ -117,7 +119,7 @@ public class Grid extends Pane
 	}
 	
 	/**
-	 * Colors the new movement block, reassigns tail, and adds said block
+	 * Colors the new movement block, reassigns tail, and adds said block.
 	 */
 	public void addOne()
 	{
@@ -134,8 +136,9 @@ public class Grid extends Pane
 	}
 	
 	/**
-	 * Adds the block to the arraylist of blocks
-	 * @param one	Block to add to the arraylist
+	 * Adds a new block to the arraylist of blocks.
+	 * 
+	 * @param one		Block to add to the arraylist
 	 */
 	private void addBlock(Block one)
 	{
@@ -145,7 +148,8 @@ public class Grid extends Pane
 	}
 	
 	/**
-	 * Grab grid's width
+	 * Getter function to get the width of the grid.
+	 * 
 	 * @return int w	width of grid
 	 */
 	public int getW() {
@@ -153,7 +157,8 @@ public class Grid extends Pane
 	}
 
 	/**
-	 * Grab grid's height
+	 * Getter function to get the height of the grid.
+	 * 
 	 * @return int h	height of grid
 	 */
 	public int getH() {
@@ -161,7 +166,7 @@ public class Grid extends Pane
 	}
 
 	/**
-	 * Constructor for Grid
+	 * Constructor for creating the Grid.
 	 * 
 	 * @param width		Grid's width
 	 * @param height	Grid's height

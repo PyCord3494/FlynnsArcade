@@ -1,29 +1,32 @@
 package application.model;
 
 import java.util.ArrayList;
-
 import application.controller.Block;
 import application.controller.Grid;
 import javafx.scene.paint.Color;
+
 /**
+ * This class contains all data for player 2's character. It includes the player's
+ * starting position, current direction, and sets their new direction.
  * 
- * @author kxm210
- *
+ * @author yng451
  */
 public class Player2
 {
-	ArrayList<Block> blocks1 = new ArrayList<Block>();
 	public ArrayList<Block> blocks2 = new ArrayList<Block>();	
+	ArrayList<Block> blocks1 = new ArrayList<Block>();
 	
 	public Block head;
 	public Block tail;
 	public String name;
-	  /**
-	  * 
-	  * @param initialLength passed in is the initial length of the player
-	  * @param g is a grid object used in the length of player 2
-	  * This function elongates the player every second of the game making them longer and longer
-	  */
+	
+	/**
+	 * This function sets the player's starting position and creates
+	 * the blocks for the character on screen as they move. 
+	 * 
+	 * @param initialLength 	the initial length of the player
+	 * @param g 				the grid implemented to display the game
+	 */
 	public Player2(int initialLength, Grid g)
 	{
 		int initialPosX = g.getW() - 25;
@@ -37,9 +40,7 @@ public class Player2
 		head.setFill(Color.BLUE.desaturate());
 		
 		tail = head;
-		
-	//	Block previous = head;
-		
+
 		Block b;
 		for (int i = 1; i < initialLength; i++)
 		{
@@ -48,16 +49,12 @@ public class Player2
 			blocks2.add(b);
 			tail = b;
 		}		
-//		for(int i = 1; i < initialLength; i++)
-//		{
-//			Block b = new Block(initialPosX + i, initialPosY, previous, g);
-//			blocks.add(b);
-//			previous = b;
-//		}
 	}
-	/***
+	
+    /**
+	 * Getter function to get the current direction of the player.
 	 * 
-	 * @return the location of the head
+	 * @return head.direction		the location of the head
 	 */
 	public int getDirection()
 	{
@@ -65,19 +62,12 @@ public class Player2
 	}
 	
 	/**
+	 * Setter function to set the current direction of the player.
 	 * 
-	 * @param sets the direction from the block being passed in, the block is the player
+	 * @param int d			sets the player's direction to given direction
 	 */
 	public void setDirection(int d)
 	{
 		head.direction = d;
-	}
-	
-	public void setName(String n){
-		this.name = n;
-	}
-	
-	public String getName(){
-		return name;
 	}
 }

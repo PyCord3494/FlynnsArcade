@@ -3,17 +3,18 @@ package application.controller;
 import javafx.scene.shape.Rectangle;
 
 /**
+ * This class is used to keep track of a player's current position.
  * 
  * @author uys943
- *
  */
 public class MenuController extends Rectangle
 {
 	int posX, posY;
 	
 	/**
-	 * Getters
-	 * @return int posX		position x
+	 * Getter function to get the current x value of player.
+	 * 
+	 * @return int posX		current x position
 	 */
 	public int getPosX()
 	{
@@ -21,8 +22,9 @@ public class MenuController extends Rectangle
 	}
 	
 	/**
-	 * Getters
-	 * @return int posY		position y
+	 * Getter function to get the current y value of player.
+	 * 
+	 * @return int posY		current y position
 	 */
 	public int getPosY()
 	{
@@ -31,7 +33,8 @@ public class MenuController extends Rectangle
 	
 	
 	/**
-	 * Setters
+	 * Setter function to set the current x value of player.
+	 * 
 	 * @param posX 			sets new x position
 	 */
 	public void setPosX(int posX)
@@ -41,8 +44,9 @@ public class MenuController extends Rectangle
 	
 
 	/**
-	 * Setters
-	 * @param posY			sets new y position
+	 * Setter function to set the current y value of player.
+	 * 
+	 * @param posY 			sets new y position
 	 */
 	public void setPosY(int posY)
 	{
@@ -50,9 +54,10 @@ public class MenuController extends Rectangle
 	}
 	
 	/**
+	 * This function sets the player's current position to the given parameters.
 	 * 
-	 * @param x		x-coordinate
-	 * @param y		y-coordinate
+	 * @param x		player's x-coordinate
+	 * @param y		player's y-coordinate
 	 */
 	public MenuController(int x, int y)
 	{
