@@ -15,7 +15,7 @@ import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.Pane;
 
 /**
- * Grid is a java class used to represent the actuapl playing field for the Tron game. 
+ * Grid is a java class used to represent the actual playing field for the Tron game. 
  * It focuses on adding the players to the game and drawing their movements.
  * @author gtp818
  */
