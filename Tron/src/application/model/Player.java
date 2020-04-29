@@ -20,7 +20,7 @@ public class Player
 	public String name;
 	/**
 	  * 
-	  * @param initialLength passed in is the initial Length of the player
+	  * @param initialLength passed in is the initial length of the player
 	  * @param g is a grid object used in the length of player 2
 	  * This function elongates the player every second of the game making them longer and longer
 	  */

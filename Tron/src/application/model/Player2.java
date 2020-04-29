@@ -20,13 +20,13 @@ public class Player2
 	public String name;
 	  /**
 	  * 
-	  * @param initialLength passed in is the initial Lenght of the player
+	  * @param initialLength passed in is the initial length of the player
 	  * @param g is a grid object used in the length of player 2
 	  * This function elongates the player every second of the game making them longer and longer
 	  */
 	public Player2(int initialLength, Grid g)
 	{
-		int initialPosX = g.getH() - 15;
+		int initialPosX = g.getW() - 25;
 		int initialPosY = g.getH()/2;
 		
 		head = new Block(initialPosX, initialPosY, null, g);

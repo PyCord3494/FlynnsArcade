@@ -76,7 +76,7 @@ public class MainMenuController extends Application {
 									scrT.p1Score--;
 									scrT.p2Score--;
 								}
-								status =  "It's a tie! \nScores: \n" +player1+ " "+scrT.getScorePlayer1()+ "\n"+player2+" "+scrT.getScorePlayer2();
+								status =  "\tIt's a tie! \n\t-Scores- \n\t" +player1+ " - "+scrT.getScorePlayer1()+ "\n\t"+player2+" - "+scrT.getScorePlayer2();
 								main.showGameOverView(ps,status,scrT);
 							} catch (IOException e) {
 								e.printStackTrace();
@@ -87,7 +87,7 @@ public class MainMenuController extends Application {
 							stop();
 							try {
 								scrT.p2Score++;
-								status = "Player "+player2+" Wins! \nScores: \n" +player1+ " "+scrT.getScorePlayer1()+ "\n"+player2+" "+scrT.getScorePlayer2();
+								status = "\t" + player2+" Wins! \n\t-Scores- \n\t" +player1+ " - "+scrT.getScorePlayer1()+ "\n\t"+player2+" - "+scrT.getScorePlayer2();
 								main.showGameOverView(ps,status,scrT);
 							} catch (IOException e) {
 								e.printStackTrace();
@@ -98,7 +98,7 @@ public class MainMenuController extends Application {
 							stop();
 							try {
 								scrT.p1Score++;
-								status =  "Player "+player1+ " Wins! \nScores: \n" +player1+ " "+scrT.getScorePlayer1()+ "\n"+player2+" "+scrT.getScorePlayer2();
+								status =  "\t" + player1+ " Wins! \n\t-Scores- \n\t" +player1+ " - "+scrT.getScorePlayer1()+ "\n\t"+player2+" - "+scrT.getScorePlayer2();
 								main.showGameOverView(ps,status,scrT);
 							} catch (IOException e) {
 								e.printStackTrace();
